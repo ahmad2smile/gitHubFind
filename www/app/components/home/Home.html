@@ -1,0 +1,35 @@
+<ion-view>
+	<ion-content>
+		<ion-list>
+			<ion-item>
+				<form ng-submit="getUserDetails(userName)">
+					<lable class="item-input">
+						<input
+							ng-model="userName"
+							type="text"
+							name="userName"
+							placeholder="User Name">
+					</label>
+					<button type="submit" class="button button-clear button-small">
+						<i class="icon ion-ios-search dark"></i>
+					</button>
+				</form>
+			</ion-item>
+		</ion-list>
+		<div class="list card">
+			<div class="item item-avatar">
+				<img ng-src="{{ userDetails.avatar_url }}" alt="{{ userDetails.name }}">
+				<h2>{{ userDetails.name }}</h2>
+				<p>{{ userDetails.public_repos }} Public Repos</p>
+				<p>{{ userDetails.location }}</p>
+			</div>
+			<div class="item item-body">
+				<p>{{ userDetails.bio }}</p>
+				<p>
+					<a class="subdued" target="_blank" href="{{ userDetails.html_url }}">Visit</a>
+					<a class="subdued" target="_blank" href="{{ userDetails.blog }}">Website</a>
+				</p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
