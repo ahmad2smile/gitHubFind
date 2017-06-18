@@ -5,7 +5,13 @@ appMainModule.factory("gitHubService", function($http) {
 					.then((res)=> res.data);
 	}
 
+	function getUserRepos(userName){
+		return $http.get("https://api.github.com/users/" + userName + "/repos")
+					.then((res)=> res.data);
+	}
+
 	return {
-		getUserDetails: getUserDetails
+		getUserDetails: getUserDetails,
+		getUserRepos: getUserRepos
 	};
 });
