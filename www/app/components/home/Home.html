@@ -26,8 +26,8 @@
 			<div class="item item-body">
 				<p>{{ userDetails.bio }}</p>
 				<p>
-					<a class="subdued" target="_blank" href="{{ userDetails.html_url }}">Visit</a>
-					<a class="subdued" target="_blank" href="{{ userDetails.blog }}">Website</a>
+					<a class="subdued" target="_blank" href="{{ userDetails.html_url | linkCorrectionFilter }}">Visit</a>
+					<a class="subdued" target="_blank" href="{{ userDetails.blog | linkCorrectionFilter }}">Website</a>
 				</p>
 			</div>
 		</div>
