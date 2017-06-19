@@ -10,8 +10,14 @@ appMainModule.factory("gitHubService", function($http) {
 					.then((res)=> res.data);
 	}
 
+	function getRepoLangs(userName, repoName) {
+		return $http.get("https://api.github.com/repos/"+ userName +"/"+ repoName +"/languages")
+					.then((res)=> res.data);
+	}
+
 	return {
 		getUserDetails: getUserDetails,
-		getUserRepos: getUserRepos
+		getUserRepos: getUserRepos,
+		getRepoLangs: getRepoLangs
 	};
 });

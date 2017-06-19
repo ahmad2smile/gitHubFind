@@ -16,7 +16,7 @@
 				</form>
 			</ion-item>
 		</ion-list>
-		<div class="list card">
+		<div ng-show="dataReady" class="list card">
 			<div class="item item-avatar">
 				<img ng-src="{{ userDetails.avatar_url }}" alt="{{ userDetails.name }}">
 				<h2>{{ userDetails.name }}</h2>
@@ -31,8 +31,15 @@
 				</p>
 			</div>
 		</div>
-		<ion-list>
-			<ion-item ng-repeat="repo in repos">{{ repo.name }}</ion-item>
+		<ion-list ng-show="dataReady">
+			<ion-item ng-repeat="repo in repos | langFilter:filterByLang" class="padding-vertical">
+				<ion-item>{{ repo.name }}</ion-item>
+				<div class="row">
+					<div ng-repeat="lang in repo.usedLangs" class="padding-horizontal langContainer">
+						<button ng-click="langFilter(lang)" ng-class="{ 'assertive': filterByLang === lang }" class="padding-horizontal button button-small">{{ lang }}</button>
+					</div>
+				</div>
+			</ion-item>
 		</ion-list>
 	</ion-content>
 </ion-view>
