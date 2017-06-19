@@ -31,7 +31,7 @@
 				</p>
 			</div>
 		</div>
-		<ion-list ng-show="dataReady">
+		<ion-list ng-show="dataReady" id="FilteredByLanguage">
 			<ion-item ng-repeat="repo in repos | langFilter:filterByLang" class="padding-vertical">
 				<ion-item>{{ repo.name }}</ion-item>
 				<div class="row">
