@@ -1,4 +1,4 @@
-appMainModule.controller("HomeCtrl", function($scope, gitHubService) {
+appMainModule.controller("HomeCtrl", function($scope, $ionicScrollDelegate, gitHubService) {
 	$scope.dataReady = false;
 	function userDetailsResolved(data) {
 		$scope.userDetails = data;
@@ -28,5 +28,6 @@ appMainModule.controller("HomeCtrl", function($scope, gitHubService) {
 
 	$scope.langFilter = function(lang = ""){
 		$scope.filterByLang = $scope.filterByLang === lang ? "" : lang;
+		$ionicScrollDelegate.scrollTop(true);
 	};
 });
